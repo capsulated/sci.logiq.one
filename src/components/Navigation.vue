@@ -22,6 +22,7 @@
         font-size: 14px;
         text-transform: uppercase;
         position: fixed;
+        z-index: 1000;
         width: 100%;
         background-color: #41b883;
         top: 0;

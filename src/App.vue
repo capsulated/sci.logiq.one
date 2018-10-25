@@ -17,6 +17,8 @@
 </script>
 
 <style lang="scss">
+  $color: #41b883;
+
   html, body {
     margin: 0;
     padding: 0;
@@ -29,7 +31,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 70px;
+    margin-top: 36px;
   }
 
   a {
@@ -38,6 +40,44 @@
   }
 
   a:hover {
-    color: #76C2AF;
+    color: #b2ebd1;
+  }
+
+  button.btn-standard {
+    cursor: pointer;
+    outline: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    margin-top: 25px;
+    padding: 7px 20px;
+    border-radius: 6px;
+    border: 1px solid $color;
+    background-color: $color;
+    color: white;
+    font-size: 16px;
+    &:hover{
+      background-color: transparent;
+      color: $color;
+    }
+    &:active{
+      background-color: #b2ebd1;
+      color: $color;
+    }
+  }
+
+  .bar-place {
+    max-width: 450px;
+    margin: 50px auto;
+  }
+
+  .trials {
+    font-family: "Times New Roman", serif;
+    padding: 4px;
+    width: 150px;
+
+    border: 1px solid #dadada;
+    outline: none;
+    font-size: 24px;
+    text-align: center;
   }
 </style>
