@@ -1,7 +1,7 @@
 <template>
     <div class="bar-place">
         <BarChart :chart-data="datacollection"></BarChart>
-        <span>Подбросить кубики <input class="trials" v-model="trials" type="text" title="trials"> раз</span>
+        <span>Сгенерировать <input class="trials" v-model="trials" type="text" title="trials"> значений</span>
         <br>
         <button class="startExp btn-standard" @click="fillData()">Смоделировать</button>
     </div>
@@ -10,7 +10,6 @@
 <script>
   import BarChart from './BarChart'
   import axios from 'axios'
-  const labels = ['0', '.05', '.1', '.15', '.2', '.25', '.3', '.35', '.4', '.45', '.5', '.55', '.6']
 
   export default {
     components: {
@@ -18,40 +17,51 @@
     },
     data () {
       return {
-        datacollection: null
+        datacollection: null,
+        trials: 100
       }
     },
     mounted () {
-      this.trials = 100
       this.fillData()
     },
     methods: {
       fillData () {
+        if (parseInt(this.trials) > 100000) {
+          document.getElementById('loader').style.display = 'block'
+        }
         axios
           .post('http://localhost:8000/modeling/exponential', {
             trials: parseInt(this.trials)
           })
           .then(response => {
+            document.getElementById('loader').style.display = 'none'
+
+            let bins = response.data.Bins
+            let values = response.data.Values
+
+            console.log(bins)
+            console.log(values)
+
             this.datacollection = {
-              labels,
+              labels: bins,
               datasets: [
                 {
                   label: 'Количество появлений',
                   backgroundColor: '#41b883',
-                  data: response.data
+                  data: values
                 }
               ]
             }
           })
           .catch(e => {
-            console.log(e)
+            alert(e)
             this.datacollection = {
-              labels,
+              labels: ['0', '.05', '.1', '.15', '.2', '.25', '.3', '.35', '.4', '.45', '.5', '.55', '.6'],
               datasets: [
                 {
                   label: 'Количество появлений',
                   backgroundColor: '#41b883',
-                  data: [0, 160, 80, 60, 62, 40, 25, 10, 12, 9, 8, 2, 4]
+                  data: [11, 5, 6, 2, 2, 2, 1, 1, 0, 0, 0, 1]
                 }
               ]
             }

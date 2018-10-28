@@ -49,6 +49,7 @@
 
     h1 {
         margin: 100px auto 40px;
+        font-size: 1.5em;
     }
 
     .diss {

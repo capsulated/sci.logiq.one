@@ -10,7 +10,6 @@
 <script>
   import BarChart from './BarChart'
   import axios from 'axios'
-  const labels = ['0', '1', '2', '3', '4', '5', '6']
 
   export default {
     components: {
@@ -27,34 +26,46 @@
     },
     methods: {
       fillData () {
+        if (parseInt(this.trials) > 1000000) {
+          document.getElementById('loader').style.display = 'block'
+        }
         axios
           .post('http://localhost:8000/modeling/onedice', {
             trials: parseInt(this.trials)
           })
           .then(response => {
+            document.getElementById('loader').style.display = 'none'
+
+            let bins = response.data.Bins
+            let values = response.data.Values
+
+            console.log(bins)
+            console.log(values)
+
             this.datacollection = {
-              labels,
+              labels: bins,
               datasets: [
                 {
                   label: 'Количество появлений',
                   backgroundColor: '#41b883',
-                  data: response.data
+                  data: values
                 }
               ]
             }
           })
           .catch(e => {
-            console.log(e)
-            this.datacollection = {
-              labels,
-              datasets: [
-                {
-                  label: 'Количество появлений',
-                  backgroundColor: '#41b883',
-                  data: [0, 17, 18, 12, 15, 21, 17]
-                }
-              ]
-            }
+            document.getElementById('loader').style.display = 'none'
+            alert('Ошибка моделирования одного кубика:' + e)
+            // this.datacollection = {
+            //   labels,
+            //   datasets: [
+            //     {
+            //       label: 'Количество появлений',
+            //       backgroundColor: '#41b883',
+            //       data: [0, 17, 18, 12, 15, 21, 17]
+            //     }
+            //   ]
+            // }
           })
       }
     }

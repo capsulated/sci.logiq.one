@@ -34,6 +34,20 @@
     margin-top: 36px;
   }
 
+  h1 {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+
+  ul, li {
+    text-align: left;
+  }
+
+  li{
+    line-height: 1.6em;
+    text-align: justify;
+  }
+
   a {
     text-decoration: none;
     color: #41b883;
@@ -70,7 +84,7 @@
     margin: 50px auto;
   }
 
-  .trials {
+  .trials, .dices {
     font-family: "Times New Roman", serif;
     padding: 4px;
     width: 150px;
@@ -79,5 +93,17 @@
     outline: none;
     font-size: 24px;
     text-align: center;
+  }
+
+  .container {
+    max-width: 1280px;
+    padding: 10px;
+    margin: auto;
+  }
+
+  p {
+    text-indent: 1.5em;
+    text-align: justify;
+    line-height: 1.4em;
   }
 </style>
