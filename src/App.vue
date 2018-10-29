@@ -35,6 +35,7 @@
   }
 
   h1 {
+    text-transform: uppercase;
     font-size: 1.5em;
     line-height: 1.5em;
   }

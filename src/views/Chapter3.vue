@@ -1,5 +1,7 @@
 <template>
-    <div>Глава 3</div>
+    <div class="container">
+        <h1>Глава 3</h1>
+    </div>
 </template>
 
 <script>

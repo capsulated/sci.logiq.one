@@ -10,7 +10,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
-    "d3-array": "^1.2.4",
     "vue": "^2.5.17",
     "vue-carousel": "^0.16.0-rc1",
     "vue-chartjs": "^3.4.0",
