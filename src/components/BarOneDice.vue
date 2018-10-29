@@ -18,7 +18,8 @@
     data () {
       return {
         datacollection: null,
-        trials: 100
+        trials: 100,
+        host: window.location.protocol + '//' + window.location.hostname + ':8000' + '/modeling/onedice'
       }
     },
     mounted () {
@@ -30,7 +31,7 @@
           document.getElementById('loader').style.display = 'block'
         }
         axios
-          .post('http://localhost:8000/modeling/onedice', {
+          .post(this.host, {
             trials: parseInt(this.trials)
           })
           .then(response => {
@@ -55,17 +56,17 @@
           })
           .catch(e => {
             document.getElementById('loader').style.display = 'none'
-            alert('Ошибка моделирования одного кубика:' + e)
-            // this.datacollection = {
-            //   labels,
-            //   datasets: [
-            //     {
-            //       label: 'Количество появлений',
-            //       backgroundColor: '#41b883',
-            //       data: [0, 17, 18, 12, 15, 21, 17]
-            //     }
-            //   ]
-            // }
+            console.log('TwoDiceError: ' + e)
+            this.datacollection = {
+              labels: [0, 1, 2, 3, 4, 6],
+              datasets: [
+                {
+                  label: 'Количество появлений',
+                  backgroundColor: '#41b883',
+                  data: [0, 17, 18, 12, 15, 21, 17]
+                }
+              ]
+            }
           })
       }
     }

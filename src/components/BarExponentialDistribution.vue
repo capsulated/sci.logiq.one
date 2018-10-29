@@ -18,7 +18,8 @@
     data () {
       return {
         datacollection: null,
-        trials: 100
+        trials: 100,
+        host: window.location.protocol + '//' + window.location.hostname + ':8000' + '/modeling/exponential'
       }
     },
     mounted () {
@@ -30,7 +31,7 @@
           document.getElementById('loader').style.display = 'block'
         }
         axios
-          .post('http://localhost:8000/modeling/exponential', {
+          .post(this.host, {
             trials: parseInt(this.trials)
           })
           .then(response => {
@@ -54,7 +55,7 @@
             }
           })
           .catch(e => {
-            alert(e)
+            console.log('TwoDiceError: ' + e)
             this.datacollection = {
               labels: ['0', '.05', '.1', '.15', '.2', '.25', '.3', '.35', '.4', '.45', '.5', '.55', '.6'],
               datasets: [

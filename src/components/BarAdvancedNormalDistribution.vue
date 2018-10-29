@@ -19,7 +19,8 @@
       return {
         datacollection: null,
         trials: 5000,
-        dices: 200
+        dices: 200,
+        host: window.location.protocol + '//' + window.location.hostname + ':8000' + '/modeling/advanced'
       }
     },
     mounted () {
@@ -31,7 +32,7 @@
           document.getElementById('loader').style.display = 'block'
         }
         axios
-          .post('http://localhost:8000/modeling/advanced', {
+          .post(this.host, {
             trials: parseInt(this.trials)
           })
           .then(response => {
@@ -55,7 +56,7 @@
             }
           })
           .catch(e => {
-            alert(e)
+            console.log('TwoDiceError: ' + e)
             document.getElementById('loader').style.display = 'none'
             this.datacollection = {
               labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'],
