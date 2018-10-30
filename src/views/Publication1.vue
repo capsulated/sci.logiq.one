@@ -24,7 +24,7 @@
                 </line>
             </svg>
         </div>
-        <carousel :per-page="1" paginationActiveColor="#42b983" paginationColor="#b2ebd1" :paginationSize="11">
+        <carousel :per-page="1" paginationActiveColor="#42b983" paginationColor="#b2ebd1" :paginationSize="12">
             <slide class="slide">
                 <div class="container">
                     <h1>

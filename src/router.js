@@ -6,7 +6,6 @@ import Abstract from './views/Abstract.vue'
 import Chapter1 from './views/Chapter1.vue'
 import Chapter2 from './views/Chapter2.vue'
 import Chapter3 from './views/Chapter3.vue'
-import Chapter4 from './views/Chapter4.vue'
 
 Vue.use(Router)
 
@@ -29,6 +28,12 @@ export default new Router({
     },
     {
       path: '/chapter1',
+      name: 'chapter1',
+      component: Chapter1
+    },
+    {
+      path: '/chapter1/:createSystem',
+      name: 'chapter1param',
       component: Chapter1
     },
     {
@@ -40,11 +45,6 @@ export default new Router({
       path: '/chapter3',
       name: 'chapter3',
       component: Chapter3
-    },
-    {
-      path: '/chapter4',
-      name: 'chapter4',
-      component: Chapter4
     }
   ]
   // mode: 'history'

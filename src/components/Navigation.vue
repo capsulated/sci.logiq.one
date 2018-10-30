@@ -6,7 +6,6 @@
         <router-link class="nav__link" to="/chapter1">Глава 1</router-link>
         <router-link class="nav__link" to="/chapter2">Глава 2</router-link>
         <router-link class="nav__link" to="/chapter3">Глава 3</router-link>
-        <router-link class="nav__link" to="/chapter4">Глава 4</router-link>
     </div>
 </template>
 
