@@ -32,11 +32,6 @@ export default new Router({
       component: Chapter1
     },
     {
-      path: '/chapter1/:createSystem',
-      name: 'chapter1param',
-      component: Chapter1
-    },
-    {
       path: '/chapter2',
       name: 'chapter2',
       component: Chapter2

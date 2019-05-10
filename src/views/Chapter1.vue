@@ -290,14 +290,6 @@
       Carousel,
       Slide
     },
-    mounted () {
-      let locat = window.location.toString()
-      // alert(locat.indexOf('createSystem'))
-      if (locat.indexOf('createSystem') !== -1) {
-        document.getElementById('createSystem').scrollIntoView(true)
-        window.scrollBy(0, -60)
-      }
-    },
     data () {
       return {
         options: {}
